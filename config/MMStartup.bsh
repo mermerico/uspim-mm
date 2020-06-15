@@ -1,0 +1,8 @@
+import ij.*;
+
+import uSPIMmm.uSPIMmm;
+
+uSPIMmm tbce = new uSPIMmm();
+
+tbce.setApp(gui);
+tbce.show();
