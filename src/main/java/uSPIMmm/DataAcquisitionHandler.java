@@ -39,12 +39,12 @@ public class DataAcquisitionHandler {
         this.daqi = daqi;
     }
 
-    public void singleAcquisition(JsonObject metaJo) {
+    public void singleAcquisition(final JsonObject metaJo) {
         Thread th = new Thread(new Runnable() {
             @Override
             public void run() {
 
-                List<Payload> ps = new ArrayList<>();
+                List<Payload> ps = new ArrayList<Payload>();
                 Payload p = new Payload();
                 try {
                     p.metaJo = metaJo;
@@ -144,7 +144,7 @@ public class DataAcquisitionHandler {
         gui.tpMain.repaint();
     }
 
-    public void seqAcquisition(List<Payload> payloads) {
+    public void seqAcquisition(final List<Payload> payloads) {
 
 
         Thread th = new Thread(new Runnable() {
@@ -207,7 +207,7 @@ public class DataAcquisitionHandler {
         th.start();
     }
 
-    private void acquire(Payload p) {
+    private void acquire(final Payload p) {
         if (scfg.getMMCore() != null) {
             try {
                 setAcquisitionState();

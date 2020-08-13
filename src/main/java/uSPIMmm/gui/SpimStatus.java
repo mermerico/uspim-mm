@@ -43,7 +43,7 @@ public class SpimStatus {
     }
 
 
-    public void create(GUI gui, SharedConfiguration scfg) {
+    public void create(final GUI gui, final SharedConfiguration scfg) {
         this.gui = gui;
         this.scfg = scfg;
         Timer timer = new Timer();

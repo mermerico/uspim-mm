@@ -48,7 +48,7 @@ public class MirrorCalibration implements Observer {
     public MirrorCalibration() {
     }
 
-    public void create(GUI gui, SharedConfiguration scfg, int mirror_id) {
+    public void create(final GUI gui, final SharedConfiguration scfg, int mirror_id) {
         this.gui = gui;
         this.scfg = scfg;
         this.mirror_id = mirror_id;
