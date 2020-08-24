@@ -23,6 +23,7 @@ dependencies {
     compile ':MMCoreJ:'
     compile ':MMAcqEngine:'
     compile ':bson:3.8.2'
+    compile ':threetenbp:1.4.4'
     extraLibs name: 'forms_rt', version: '2017.2.2'
     extraLibs name: 'bson', version: '3.8.2'
 }
