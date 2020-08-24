@@ -44,7 +44,7 @@ public class LaserShutterCalibration implements Observer {
     private SharedConfiguration scfg;
     private int galvo_id;
 
-    public void create(GUI gui, SharedConfiguration scfg, int galvo_id) {
+    public void create(final GUI gui, final SharedConfiguration scfg, int galvo_id) {
         this.gui = gui;
         this.scfg = scfg;
         this.galvo_id = galvo_id;

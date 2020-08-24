@@ -52,7 +52,7 @@ public class Configuration {
         });
     }
 
-    public void create(GUI gui, SharedConfiguration scfg) {
+    public void create(final GUI gui, final SharedConfiguration scfg) {
         this.scfg = scfg;
         tfCfgConfigFile.setText(System.getProperty("user.home") + "/settings_default.json");
         btnCfgSaveConfig.addMouseListener(new MouseAdapter() {

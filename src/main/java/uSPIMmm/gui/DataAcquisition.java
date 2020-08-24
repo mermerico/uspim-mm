@@ -68,7 +68,7 @@ public class DataAcquisition implements Observer {
     private List<DataAcquisitionHandler.Payload> payloads;
 
     public DataAcquisition() {
-        payloads = new ArrayList<>();
+        payloads = new ArrayList();
         cbNmAdaptationPhase.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
@@ -153,7 +153,7 @@ public class DataAcquisition implements Observer {
         });
     }
 
-    public void create(GUI gui, SharedConfiguration scfg) {
+    public void create(final GUI gui, final SharedConfiguration scfg) {
         this.gui = gui;
         this.scfg = scfg;
         dah = new DataAcquisitionHandler(gui, scfg, this);
@@ -175,7 +175,7 @@ public class DataAcquisition implements Observer {
             public void mouseReleased(MouseEvent e) {
                 super.mouseReleased(e);
                 if (cbSeqAcq.isSelected()) { //Sequential Acquisition
-                    List<DataAcquisitionHandler.Payload> pls = new ArrayList<>();
+                    List pls = new ArrayList();
                     DataAcquisitionHandler.Payload prep = new DataAcquisitionHandler.Payload();
                     prep.isAdaptation = true;
                     prep.masks1 = payloads.get(0).masks1;
@@ -501,7 +501,7 @@ public class DataAcquisition implements Observer {
     }
 
     public void updateTable() {
-        String[] columnNames = {
+        final String[] columnNames = {
                 "Type",
                 "Mode",
                 "Volumes",
@@ -512,7 +512,7 @@ public class DataAcquisition implements Observer {
                 "Duration",
                 "Acquire?"};
 
-        List<Object[]> rowData = new ArrayList<>();
+        final List rowData = new ArrayList();
         if (cbSeqAcq.isSelected()) {
             if (cbNmAdaptationPhase.isSelected()) {
                 rowData.add(new Object[]{"Adapt.", "n/a", "n/a", "n/a", "n/a", "0", "0", tfNmAdaptationPhaseDuration.getText(), new Boolean(false)});
@@ -563,7 +563,7 @@ public class DataAcquisition implements Observer {
             }
 
             public Object getValueAt(int row, int col) {
-                return rowData.get(row)[col];
+                return ((Object[])rowData.get(row))[col];
             }
 
             public boolean isCellEditable(int row, int col) {

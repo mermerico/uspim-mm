@@ -39,12 +39,12 @@ public class DataAcquisitionHandler {
         this.daqi = daqi;
     }
 
-    public void singleAcquisition(JsonObject metaJo) {
+    public void singleAcquisition(final JsonObject metaJo) {
         Thread th = new Thread(new Runnable() {
             @Override
             public void run() {
 
-                List<Payload> ps = new ArrayList<>();
+                List ps = new ArrayList();
                 Payload p = new Payload();
                 try {
                     p.metaJo = metaJo;
@@ -107,9 +107,9 @@ public class DataAcquisitionHandler {
                     disableCamera();
                     gui.cd.queryAsyncPause();
                     Thread.sleep(500);
-                    for (Payload pi : ps) {
-                        setText(pi);
-                        acquire(pi);
+                    for (Object pi : ps) {
+                        setText((Payload)pi);
+                        acquire((Payload)pi);
                     }
                     scfg.getMMCore().setShutterOpen(false);
                     scfg.getMMCore().setAutoShutter(true);
@@ -144,7 +144,7 @@ public class DataAcquisitionHandler {
         gui.tpMain.repaint();
     }
 
-    public void seqAcquisition(List<Payload> payloads) {
+    public void seqAcquisition(final List<Payload> payloads) {
 
 
         Thread th = new Thread(new Runnable() {
@@ -207,7 +207,7 @@ public class DataAcquisitionHandler {
         th.start();
     }
 
-    private void acquire(Payload p) {
+    private void acquire(final Payload p) {
         if (scfg.getMMCore() != null) {
             try {
                 setAcquisitionState();

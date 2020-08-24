@@ -4,7 +4,7 @@ apply plugin: 'idea'
 apply plugin: 'java'
 apply plugin: 'application'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 1.6
 
 mainClassName = "uSPIMmm.GUI"
 
@@ -24,6 +24,7 @@ dependencies {
     compile ':MMAcqEngine:'
     compile ':bson:3.8.2'
     extraLibs name: 'forms_rt', version: '2017.2.2'
+    extraLibs name: 'bson', version: '3.8.2'
 }
 
 jar {
